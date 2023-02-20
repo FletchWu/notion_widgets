@@ -122,10 +122,13 @@ let timer = setInterval(function() {
   const diff = myDate - today;
 
   // math
-  let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+  //let years = Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
     // Round down the number of years to the nearest integer
-  years = Math.floor(years);
+  //years = Math.floor(years);
   let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  // Calculate the number of years and days
+  let years = Math.floor(days / 365.25);
+  let remainingDays = days % 365.25;
   let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((diff % (1000 * 60)) / 1000);
