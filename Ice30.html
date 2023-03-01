@@ -8,7 +8,9 @@
     <style>
 
 body{
-    background-color: white;
+            text-align: center;
+            font-family: 'Fjalla One', sans-serif;
+            background-color: #fff;
 }
   
 #timer {
@@ -20,28 +22,36 @@ body{
   letter-spacing: 5px;
 }
 
-.days, .hours, .minutes, .seconds {
+.years, .days, .hours, .minutes, .seconds {
   display: inline-block;
   padding: 20px;
   width: 100px;
   border-radius: 5px;
 }
 
+.years {
+  background: #f9dc5c;
+    color:  #183059;
+}   
+      
 .days {
-  background: #EF2F3C;
+  background: #fae588;
+    color:  #183059;
 }
 
 .hours {
-  background: #eeeeee;
-  color: #183059;
+  background: #fcefb4;
+    color:  #183059;
 }
 
 .minutes {
-  background: #276FBF;
+  background: #fdf8e1;
+    color:  #183059;
 }
 
 .seconds {
-  background: #F0A202;
+  background: #f9dc5c;
+    color:  #183059;
 }
 
 .numbers {
@@ -80,6 +90,19 @@ body{
 
 
 }
+        
+                h3{
+            text-align: center;
+                    color: #183059;
+                    let heading = document.querySelector("h2");
+heading.textContent = "Time left until death";
+heading.style.fontWeight = "bold";
+            
+        }
+        .small{
+            font-size: 15px;
+            font-weight: lighter;
+        }
 
 
     </style>
@@ -88,6 +111,12 @@ body{
     
 <div id="timer">
 
+    <h3>
+        I want a handsome and rich guy!!!
+    </h3>
+    
+      <div class="years"> 
+        <div id="years" class="numbers "> </div>years</div> 
     <div class="days"> 
         <div id="days" class="numbers "> </div>days</div> 
       <div class="hours"> 
@@ -102,7 +131,7 @@ body{
 
 </body>
 <script>
-    const year = new Date().getFullYear();
+const year = new Date().getFullYear();
 const myDate = new Date('Nov 19, 2026 00:00:00');
 console.log(myDate);
 
@@ -116,12 +145,17 @@ let timer = setInterval(function() {
   const diff = myDate - today;
 
   // math
-  let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  let years = diff / (1000 * 60 * 60 * 24 * 365.25);
+  // Round down the number of years to the nearest integer
+  years = Math.floor(years);
+  // Calculate the remaining days after subtracting full years
+  let days = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24));
   let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
   // display
+  document.getElementById("years").innerHTML=years
   document.getElementById("days").innerHTML=days
   document.getElementById("hours").innerHTML=hours
   document.getElementById("minutes").innerHTML=minutes
