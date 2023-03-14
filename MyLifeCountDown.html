@@ -143,14 +143,12 @@ let timer = setInterval(function() {
   years = Math.floor(years);
   // Calculate the remaining days after subtracting full years
   let days = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24));
-  let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
   // display
   document.getElementById("years").innerHTML=years
   document.getElementById("days").innerHTML=days
-  document.getElementById("hours").innerHTML=hours
   document.getElementById("minutes").innerHTML=minutes
   document.getElementById("seconds").innerHTML=seconds
 
