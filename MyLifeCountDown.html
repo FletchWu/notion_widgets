@@ -22,7 +22,7 @@ body{
   letter-spacing: 5px;
 }
 
-.years, .days, .minutes, .seconds {
+.years, .days {
   display: inline-block;
   padding: 20px;
   width: 100px;
@@ -36,16 +36,6 @@ body{
       
 .days {
   background: #fae588;
-    color:  #183059;
-}
-
-.minutes {
-  background: #fdf8e1;
-    color:  #183059;
-}
-
-.seconds {
-  background: #f9dc5c;
     color:  #183059;
 }
 
@@ -114,10 +104,6 @@ heading.style.fontWeight = "bold";
         <div id="years" class="numbers "> </div>years</div> 
     <div class="days"> 
         <div id="days" class="numbers "> </div>days</div> 
-      <div class="minutes"> 
-        <div  id="minutes" class="numbers"> </div>minutes</div> 
-      <div   class="seconds"> 
-        <div id="seconds" class="numbers"> </div>seconds</div> 
       </div>
 
 </div>
@@ -143,14 +129,10 @@ let timer = setInterval(function() {
   years = Math.floor(years);
   // Calculate the remaining days after subtracting full years
   let days = Math.floor((diff % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24));
-  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
   // display
   document.getElementById("years").innerHTML=years
   document.getElementById("days").innerHTML=days
-  document.getElementById("minutes").innerHTML=minutes
-  document.getElementById("seconds").innerHTML=seconds
 
 
 
